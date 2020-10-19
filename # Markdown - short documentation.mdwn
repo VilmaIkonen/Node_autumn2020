@@ -1,0 +1,92 @@
+# Markdown - short documentation
+
+- vscode/vscodium
+  - ctrl+shift+v
+- apple
+  - cmd+shift+v
+
+## Headers
+
+# Level1
+
+## Level2
+
+### Level3
+
+#### Level4
+
+##### Level5
+
+###### Level6
+
+## Text formatting
+
+Some text _in italic_  
+Some text **in bold**  
+`code text`
+
+Line break at the end of line with two spaces (not enter)
+
+## Blockquoting
+
+> This is first level quote
+>
+> > This is nested quote
+> >
+> > > This is even further nested quote
+
+## Lists
+
+- item1
+- item2
+  - subitem1
+  - subitem2
+
+1. item1
+2. item2
+
+## Page breaks
+
+<div style="page-break-after:always;"></div>
+
+### javascript
+
+```js
+const number = 10;
+const textBody = document.getElemetntById("text");
+```
+
+### JSON
+
+```json
+{
+  "firstname": "Vilma",
+  "lastname": "Ikonen",
+  "age": 25
+}
+```
+
+## HTML
+
+```html
+<main>
+  <div>This is the div</div>
+  <h1>This is header 1</h1>
+  <img src="#" />
+</main>
+```
+
+### CSS
+
+```css
+p {
+  color: red;
+  font-family: sans serif;
+}
+```
+
+### Terminal or shell
+
+```shell
+> node -v
+```
