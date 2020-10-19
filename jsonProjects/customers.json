@@ -1,0 +1,17 @@
+[
+  {
+    "firstname": "Matt",
+    "lastname": "River",
+    "bonus": 100
+  },
+  {
+    "firstname": "Leila",
+    "lastname": "Island",
+    "bonus": 300
+  },
+  {
+    "firstname": "Mary",
+    "lastname": "Hill",
+    "bonus": 10
+  }
+]
