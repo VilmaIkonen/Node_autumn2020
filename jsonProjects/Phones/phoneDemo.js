@@ -20,7 +20,7 @@ for (let person of phones) {
 
 console.log('\n#################################\n');
 
-/* print all names and numbers in a row*/
+/* print name and numbers in a row*/
 for (let person of phones) {
   if (person.numbers.length === 0) {
     console.log(`${person.firstname} ${person.lastname} has no numbers`);
@@ -74,6 +74,17 @@ for (let person of phones) {
       ? ' has no numbers'
       : `: ${person.numbers.join(', ')}`;
   console.log(message);
+}
+
+console.log('\n#################################\n');
+
+for (let person of phones) {
+  const { firstname, lastname, numbers } = person;
+  if (numbers.length === 0) {
+    console.log(`${firstname} ${lastname} has no numbers`);
+    continue;
+  }
+  console.log(`${firstname} ${lastname}: ${numbers.join(', ')}`);
 }
 
 console.log('\n#################################\n');
