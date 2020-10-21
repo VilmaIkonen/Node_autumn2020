@@ -11,7 +11,11 @@ console.log(phones[0].numbers[1]);
 /* first person and his first number */
 console.log(phones[0].firstname, phones[0].numbers[0]);
 
-/* print all names and numbers */
+console.log('\n#################################\n');
+
+/* ----- print all names and numbers ----- */
+
+/* 1st= outer loop for persons array, 2nd=inner for-loop for numbers arrays */
 for (let person of phones) {
   for (let number of person.numbers) {
     console.log(`${person.firstname} ${person.lastname}: ${number}`);
@@ -20,13 +24,14 @@ for (let person of phones) {
 
 console.log('\n#################################\n');
 
-/* print name and numbers in a row*/
+/* ------ print name and numbers in one row, not on separate ones ----- */
 for (let person of phones) {
   if (person.numbers.length === 0) {
     console.log(`${person.firstname} ${person.lastname} has no numbers`);
   } else {
-    let message = `${person.firstname} ${person.lastname}:`;
+    let message = `${person.firstname} ${person.lastname}: `;
     for (let i = 0; (i = person.numberslenght - 1); i++) {
+      /* length-1 prevents comma (,) after last number. Last number added with following message-row */
       message += `${person.numbers[i]}`;
     }
     message += person.numbers[person.numbers.length - 1];
@@ -78,6 +83,7 @@ for (let person of phones) {
 
 console.log('\n#################################\n');
 
+/* OR */
 for (let person of phones) {
   const { firstname, lastname, numbers } = person;
   if (numbers.length === 0) {
