@@ -1,12 +1,8 @@
 'use strict';
 
-const phones = require('./phones.json');
+const { getTypes, getNumbersByType = require('./telephones')}
 
-for (let person of phones) {
-  if (person.phones.number.length === 0) {
-    message += ` has no numbers`;
-  } else {
-    message += ': ' + person.numbers.join(', ');
-  }
-  console.log(message);
-}
+console.log(getTypes());
+
+console.log(getNumbersByType('Leila', 'Hökki', 'home'));
+console.log(getNumbersByType('Matt', 'River', 'work'));
