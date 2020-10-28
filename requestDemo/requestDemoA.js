@@ -16,4 +16,4 @@ server.listen(port, host, () =>
   console.log(`Server ${host} listening port ${port}`)
 );
 
-//on browser URL: localhost:3000/abc?model=Hoppa (searching data with model name) or localhost:3000abc?model=Hoppa&licence=XYZ-456
+//on browser URL: localhost:3000/?model=Hoppa (searching data with model name) or localhost:3000abc?model=Hoppa&licence=XYZ-456
