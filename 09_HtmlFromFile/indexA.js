@@ -6,10 +6,9 @@ const path = require('path'); //Path module from Node
 
 const { port, host } = require('./config.json');
 
-const homePath = path.join(__dirname, 'home.html'); //2 alaviivaa ennen dirname!
+const homePath = path.join(__dirname, 'home.html'); //2 alaviivaa ennen dirname! Path module "takes care of" the path form. We will mostly be using path.join (another one is path.extname)
 
-// console.log(homePath);
-
+// File system Node.js component. Has methods for reading and writing files. fs Promises API
 const server = http.createServer((req, res) => {
   fs.readFile(homePath, 'utf8', (err, data) => {
     //err, data = callback function
@@ -19,7 +18,7 @@ const server = http.createServer((req, res) => {
     } else {
       res.writeHead(200, {
         'Content-type': 'text/html',
-        'Content-length': Buffer.byteLength(data, 'utf8'), //browser needs to know how long the data is
+        'Content-length': Buffer.byteLength(data, 'utf8'), //browser needs to know how long the data is. W/o, might miss last character from html(> --> result: no page shown at all)
       });
       res.end(data);
     }
