@@ -21,6 +21,10 @@ const server = http.createServer( (req, res) => {
     } else if (route === '/pagea'){
     sendFile(res, pageA);
     } 
+    //linking styles.css to server
+    else if (route.startsWith('/styles/')){ 
+        sendStyles(res, path.join(__dirname, route));
+    }
     else {
         res.statusCode = 404;
         res.end('Error: page not found')
@@ -31,8 +35,9 @@ const server = http.createServer( (req, res) => {
 // Server with function
 server.listen(port, host, () => console.log(`Server running, ${host}: ${port}`));
 
+//sending html
 async function sendFile(res, filePath){ 
-    try{
+    try {
     const data = await fs.promises.readFile(filePath, 'utf8');
     res.writeHead(200, {'Content-type':'text/html', 'Content-length':Buffer.byteLength(data, 'utf8')});
     res.end(data);
@@ -42,4 +47,16 @@ async function sendFile(res, filePath){
     res.end(`Error: ${err.message}`);
 }}
 
-// When 
+//sending style
+async function sendStyles(res, filePath){ 
+    try {
+    const data = await fs.promises.readFile(filePath, 'utf8');
+    res.writeHead(200, {'Content-type':'text/css', 'Content-length':Buffer.byteLength(data, 'utf8')});
+    res.end(data);
+    }
+    catch(err){
+        res.statusCode=404;
+    res.end(`Error: ${err.message}`);
+}}
+
+
