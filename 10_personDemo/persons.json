@@ -1,5 +1,5 @@
 [
-    {"firstname": "Matt", "lastname": "River", "Age":30},
-    {"firstname": "Jesse", "lastname": "River", "Age":10},
-    {"firstname": "Mary", "lastname": "Smith", "Age":50}
+    {"firstname": "Matt", "lastname": "River", "age":30},
+    {"firstname": "Jesse", "lastname": "River", "age":10},
+    {"firstname": "Mary", "lastname": "Smith", "age":50}
 ]

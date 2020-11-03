@@ -1,48 +1,22 @@
 'use strict';
 
-const { format } = require('path');
 const persons = require('./persons.json');
 
-function getAllPersons() {
-    return persons;
-}
-
-function getWithFirstname(firstname){
-    for(let person of persons){
-        if (person.firstname === name){
-            return[person];
+exports.search = (key, value) => {
+    if(key && value ){
+        const found = [];
+        for (let person of persons) {
+            if(person[key] == value) { // == not as strict as === --> can check numbers and strings
+                found.push(person);
+            } 
+                
         }
+        return found;
+
     }
-    return[];
+    else {
+        return persons;
+    }
 }
 
-function getWithFirstname(firstname){
-    for(let person of persons){
-        if (person.firstname === name){
-            return[person];
-        }
-    }
-    return[];
-}
-
-function getWithLastname(lastname){
-    for(let person of persons){
-        if (person.lastname === name){
-            return[person];
-        }
-    }
-    return[];
-}
-
-function getWithAge(age){
-    for(let person of persons){
-        if (person.age === name){
-            return[person];
-        }
-    }
-    return[];
-}
-
-
-module.exports = { getAllPersons, getWithFirstname, getWithLastname, getWithAge };
   
