@@ -35,45 +35,27 @@ const server = http.createServer((req, res) => {
 server.listen(port, host, () => console.log(`Listening ${host}: ${port}`))
 
 function createHtmlPage(resultArray){
-    let htmlPage = `<!DOCTYPE html>
-    <html lang = "en">
-    <head>
-    <meta charset = "utf-8">
-    <title>persons<title>
-    </head>
-    <body>
-    <h1>Search result</h1>
-    <table>
-    <thead>
-    <tr><th>First name</th><th>Last name</th><th>Age</></tr>
-    </thead>
-    <tbody>`;
+    let htmlPage = 
+    `<!DOCTYPE html>
+        <html lang = "en">
+            <head>
+                <meta charset = "utf-8">
+                <title>persons</title>
+            </head>
+            <body>
+                <h1>Search result</h1>
+                <table>
+                    <thead>
+                        <tr><th>First name</th><th>Last name</th><th>Age</th></tr>
+                    </thead>
+                    <tbody>`;
+
     for(let person of resultArray){
-        htmlPage += `<tr><td>${person.firstname}</td><td>${person.lastname}</td><td>${person.age}</td></tr>`
-    };
+        htmlPage += 
+        `<tr><td>${person.firstname}</td><td>${person.lastname}</td><td>${person.age}</td></tr>`
+    }
+
     htmlPage+=`</tbody></table></html>`;
     return htmlPage;
-}
+};
 
-// sendFile(res, homePath);
-
-// const path = require('path');  tätä ei tarvita koska ...
-// const fs = require ('fs');
-// const homePath = path.join(__dirname, 'home.html');
-
-// let result = [];
-
-
-
-// server.listen(port, host, () => console.log(`Server running, ${host}: ${port}`));
-
-// async function sendFile(res, filePath){
-//     try {
-//         const result = await fs.promises.readFile(filePath, 'utf8');
-
-//     }
-//     catch(err) {
-//         res.statusCode=404;
-//         res.end(`Error: ${err.message}`);
-//     }
-// }
