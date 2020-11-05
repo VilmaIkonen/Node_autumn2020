@@ -3,7 +3,7 @@
 
 const http = require('http');
 const url = require('url');
-const fs = require ('fs').promises; // is needed for file transfer(?)
+const fs = require ('fs').promises; // is needed for file transfer
 const path = require('path');
 
 const port = process.env.PORT || 3000;
@@ -56,7 +56,7 @@ server.listen(port, host, () => console.log(`Listening ${host}: ${port}`))
 async function sendFile(res, filePath, contentType='text/html'){ //contentType default value text/html, if not otherwise stated.
     try {
         const data = await fs.readFile(filePath, 'utf8');
-        res.writeHead(200, {'Content-type':contentType,'Content-length': Buffer.byteLength(data, 'utf8')
+        res.writeHead(200, {'Content-Type':contentType,'Content-Length': Buffer.byteLength(data, 'utf8')
     });
     res.end(data);
 

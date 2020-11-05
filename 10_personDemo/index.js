@@ -25,7 +25,7 @@ const server = http.createServer((req, res) => {
         result = search('lastname', value);
     } 
     else if(route === '/persons/age'){
-        result = search('age', +value) // + changes string to a number. not necessary neede here as comparison is done with ==
+        result = search('age', +value) // + changes string to a number. not necessary needed here as comparison is done with ==
     }
     res.writeHead(200, {'Content-type':'text/html'});
     res.end(createHtmlPage(result));
@@ -40,7 +40,7 @@ function createHtmlPage(resultArray){
         <html lang = "en">
             <head>
                 <meta charset = "utf-8">
-                <title>persons</title>
+                <title>Persons</title>
             </head>
             <body>
                 <h1>Search result</h1>
