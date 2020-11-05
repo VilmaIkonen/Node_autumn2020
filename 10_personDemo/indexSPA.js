@@ -9,7 +9,7 @@ const path = require('path');
 const port = process.env.PORT || 3000;
 const host = process.env.host || 'localhost';
 
-const homePath = path.join(__dirname, 'home.html');
+const homePath = path.join(__dirname, 'home.html'); // If home.html eg. in js-folder--> (__dirname, 'js','home.html') Can be referred also as '../home.html'
 const {search} = require('./persons.js');
 
 const server = http.createServer((req, res) => {
@@ -47,7 +47,7 @@ const server = http.createServer((req, res) => {
         }
 
         res.writeHead(200, {'Content-type':'application/JSON'});
-        res.end(JSON.stringify(result));
+        res.end(JSON.stringify(result)); //server receives JSOn data
     }
 });
 
