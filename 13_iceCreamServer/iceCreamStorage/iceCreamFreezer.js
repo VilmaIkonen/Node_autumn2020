@@ -1,7 +1,6 @@
 'use strict';
 
 const path = require('path');
-const { cachedDataVersionTag } = require('v8');
 
 const {read} =require('../library/handler'); /* hardcoded requiring, not nice. can be also parametrized */
 
@@ -15,7 +14,7 @@ const getAllFlavors = async () => {
         const iceCreams = await JSON.parse(data.fileData);
         return Object.keys(iceCreams);
     }
-    catch {
+    catch (err){
         return [];
     }
 }
@@ -28,9 +27,7 @@ const hasFlavor = async flavor => {
         const iceCreams = JSON.parse(data.fileData);
         return Object.keys(iceCreams).includes(flavor); /* will be true or false, no need for if-statement. This is case-sensitive. */
         /* If want to overcome case-sensitivity -->
-        return Object.keys(iceCreams).map(iceCreamFlavor => iceCreamFlavor.toLowerCase()).includes(flavor.lowerCase()); */
-        
-
+        return Object.keys(iceCreams).map(iceCreamFlavor => iceCreamFlavor.toLowerCase()).includes(flavor.lowerCase()); */        
     }
     catch(err) {
         return false;
@@ -54,8 +51,8 @@ module.exports={getAllFlavors, hasFlavor, getIceCream}
 
 
 // Some tests:
-getAllFlavors().then(flavors => console.log(flavors));
+// getAllFlavors().then(flavors => console.log(flavors));
 
-hasFlavor('Vanilla').then(result => console.log(result)).catch(err => console.log(err));
+// hasFlavor('Vanilla').then(result => console.log(result)).catch(err => console.log(err));
 
-getIceCream('vanilla').then(iceCream => console.log(iceCream)).catch(err => console.log(err));
+// getIceCream('vanilla').then(iceCream => console.log(iceCream)).catch(err => console.log(err));

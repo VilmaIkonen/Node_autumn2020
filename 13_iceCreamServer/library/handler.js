@@ -22,7 +22,7 @@ const read = filepath => {
 // ----- File SENDING function ----- //
 
 const send =(res, resource) => { /* resource: can be images, text etc. JSON will handled separately */
-    res.writeHead(200,{'Content-type':resource.mime.type,'Content-length': Buffer.byteLength(resource.fileData, reource.mime.encoding) }); /* content type and length will be read from mimetypes.json */
+    res.writeHead(200,{'Content-type':resource.mime.type,'Content-length': Buffer.byteLength(resource.fileData, resource.mime.encoding) }); /* content type and length will be read from mimetypes.json */
     res.end(resource.fileData, resource.mime.encoding);
 }
 
