@@ -13,5 +13,11 @@
         "name": "Blueberry",
         "price": 3,
         "image": "blueberry.png"
+    },
+    "rasberry":{
+        "name": "Rasberry",
+        "price": 2.8,
+        "image": "rasberry.png"
     }
 }
+
