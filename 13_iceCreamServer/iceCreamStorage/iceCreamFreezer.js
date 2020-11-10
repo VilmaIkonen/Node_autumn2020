@@ -2,7 +2,7 @@
 
 const path = require('path');
 
-const {read} =require('../library/handler'); /* hardcoded requiring, not nice. can be also parametrized */
+const {read} =require('../library/handler.js'); /* hardcoded requiring, not nice. can be also parametrized */
 
 const jsonPath = path.join(__dirname, 'iceCream.json') /* cannot be required as the file will be read every time it is used. If requiring, would return a static file. Big JSON files cannot be read on every call. Other solution needed then*/
 

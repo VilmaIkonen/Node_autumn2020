@@ -1,4 +1,4 @@
-// File for the server
+// Changes in const {getAllFlavors}...
 
 'use strict';
 
@@ -12,7 +12,7 @@ const host = process.env.HOST || 'localhost';
 // Handles reading and sending files
 const {read, send, sendJson, sendError, isIn} = require(path.join(__dirname, 'library', 'handler.js'));
 
-const {getAllFlavors, hasFlavor, getIceCream} = require(path.join(__dirname, 'iceCreamStorage', 'iceCreamFreezer.js'))
+const {getAllFlavors, hasFlavor, getIceCream} = require(path.join(__dirname, 'iceCreamStorage', 'iceCreamFreezer2.js'))(__dirname);
 
 const resourceRoutes =['/favicon', '/styles/', '/js/', '/images/'] /* could be done with separate if else's but can now use isIn function */ 
 
