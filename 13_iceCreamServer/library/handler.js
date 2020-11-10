@@ -32,14 +32,14 @@ const sendJson = (res, jsonResource) => {
     res.end(jsonData);
 }
 
-// ----- error SENDING function ----- //
+// ----- Error SENDING function ----- //
 
 const sendError = (res, message, code = 404) => {
     res.writeHead(code, {'Content-type': 'Application/json'}) /* error message will be in JSON format */ 
     res.end(JSON.stringify({message}));
 }
 
-// ----- helper function for checking if something is there or not ----- //
+// ----- Helper function for checking routes.  Makes programming in index.js easier! ----- //
 
 const isIn = (route, ...routes) => {
     for(let start of routes) {

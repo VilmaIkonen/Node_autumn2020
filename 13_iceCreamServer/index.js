@@ -5,7 +5,6 @@
 const http = require('http');
 const url = require('url');
 const path = require('path');
-const iceCreamFreezer = require('./iceCreamStorage/iceCreamFreezer')
 
 const port = process.env.PORT || 3000;
 const host = process.env.HOST || 'localhost';
@@ -41,10 +40,10 @@ const server = http.createServer(async(req, res) => {
             // const flavor = await getAllFlaovrs();
             // sendJson(res, flavors); can be done with two lines or as one liner
         } 
-        else if(route.startsWith('/icecreams')){ //--> route = 'icecreams/vanilla'
+        else if(route.startsWith('/icecreams/')){ //--> route = '/icecreams/vanilla'
             const pathParts = route.split('/'); // will split on '/'
             // console.log(pathParts);
-            if(pathParts.lenght > 2) {
+            if(pathParts.length > 2) {
                 const iceCreamFlavor = pathParts[2];
                 if(await hasFlavor(iceCreamFlavor)) {
                     const iceCream = await getIceCream(iceCreamFlavor);
