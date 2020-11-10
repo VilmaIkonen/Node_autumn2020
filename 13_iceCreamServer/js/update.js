@@ -4,7 +4,7 @@
     let iceCreamList;
     let resultarea;
 
-    document.addEventListener('DOMcontentLoaded', init);
+    document.addEventListener('DOMContentLoaded', init);
 
     async function init() {
         iceCreamList = document.getElementById('iceCreamList');

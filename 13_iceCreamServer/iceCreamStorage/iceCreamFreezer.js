@@ -14,7 +14,7 @@ const getAllFlavors = async () => {
         const iceCreams = await JSON.parse(data.fileData);
         return Object.keys(iceCreams);
     }
-    catch (err){
+    catch(err){
         return [];
     }
 }
