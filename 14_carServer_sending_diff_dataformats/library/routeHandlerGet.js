@@ -1,7 +1,6 @@
 'use strict';
 
 const path = require('path');
-const { send } = require('process');
 const url = require('url');
 
 module.exports = (basedir, config) => {
@@ -19,11 +18,11 @@ module.exports = (basedir, config) => {
                             config.library.folder, 
                             config.library.requesthandler));
 
-    const {getcars} = require(path.join( basedir, 
+    const { getcars } = require(path.join( basedir, 
                                 config.storage.folder, 
                                 config.storage.file))(basedir, config.storage);
 
-    const homePath = path.join(basedir, config.MENU);    
+    const menuPath = path.join(basedir, config.MENU);    
     
     const errorPagePath = path.join(basedir, 
                                     config.webpages.folder, 

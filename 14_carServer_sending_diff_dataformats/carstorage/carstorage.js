@@ -1,6 +1,6 @@
 'use strict';
 
-const path = require ('path');
+const path = require('path');
 
 module.exports = (basedir, config) => {
     const cars = require(path.join(basedir, config.folder, config.json));

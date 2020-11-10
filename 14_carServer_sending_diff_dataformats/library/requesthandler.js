@@ -4,24 +4,25 @@
 
 'use strict';
 
-const send =(res, resource) => { 
+const send = (res, resource) => { 
     res.writeHead(200,{
-        'Content-type':resource.mime.type,
-        'Content-length': Buffer.byteLength(resource.fileData, resource.mime.encoding) 
+        'Content-Type': resource.mime.type,
+        'Content-Length': Buffer.byteLength(resource.fileData, resource.mime.encoding) 
     }); 
     res.end(resource.fileData, resource.mime.encoding);
 }
 
 const sendJson = (res, jsonResource) => {
     const jsonData = JSON.stringify(jsonResource)
-    res.writeHead(200, {'Content-type':'application/json'});
+    res.writeHead(200, {'Content-Type':'application/json'});
     res.end(jsonData);
 }
 
 const sendError = (res, message, code = 404) => {
-    res.writeHead(code, {'Content-type': 'Application/json'}) /
+    res.writeHead(code, {'Content-Type': 'Application/json'}) /
     res.end(JSON.stringify({message}));
 }
+
 
 // ----- Helper function for checking routes.  Makes programming in index.js easier! ----- //
 
@@ -33,7 +34,7 @@ const isIn = (route, ...routes) => {
     return false;
 }
 
-const getPostData = req => new Promise ((resolve, reject) => {
+const getPostData = req => new Promise((resolve, reject) => {
     const contentType = req.headers['content-type'];
     let parse;
     if(contentType === 'application/x-www-form-urlencoded') {
@@ -48,7 +49,7 @@ const getPostData = req => new Promise ((resolve, reject) => {
     let databuffer = [];
     req.on('data', messageFragment => databuffer.push(messageFragment));
     req.on('end', () => resolve(parse(Buffer.concat(databuffer).toString())));
-    resolve.on('error', () => reject('Error during the data transfer'));
+    req.on('error', () => reject('Error during the data transfer'));
 });
 
 const redirectError = (res, message) => {
@@ -56,5 +57,4 @@ const redirectError = (res, message) => {
     res.end();
 }
 
-// exports needed so file can be read elsewhere
 module.exports = {send, sendJson, sendError, isIn, getPostData, redirectError};
