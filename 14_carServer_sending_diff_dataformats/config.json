@@ -10,7 +10,7 @@
     "storage": {
         "folder": "carstorage",
         "file": "carstorage.js",
-        "jsons": "cars.json"
+        "json": "cars.json"
     },
     "resourcePaths":["/favicon", "/styles/", "/js/", "/images/"],
 
