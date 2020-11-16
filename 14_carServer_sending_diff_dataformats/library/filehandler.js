@@ -13,6 +13,7 @@ const read = filepath => {
         type: 'application/octet-stream',
         encoding: 'binary'
     };
+    
     return new Promise((resolve, reject) => {
         fs.readFile(filepath, mime.encoding, (err, fileData) => {
             if(err) {

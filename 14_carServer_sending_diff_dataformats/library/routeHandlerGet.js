@@ -18,15 +18,18 @@ module.exports = (basedir, config) => {
                             config.library.folder, 
                             config.library.requesthandler));
 
-    const { getcars } = require(path.join( basedir, 
+    const { getCars } = require(path.join( basedir, 
                                 config.storage.folder, 
                                 config.storage.file))(basedir, config.storage);
 
     const menuPath = path.join(basedir, config.MENU);    
     
     const errorPagePath = path.join(basedir, 
-                                    config.webpages.folder, 
-                                    config.webpages.errorpage);
+                                    config.ERRORPAGE);
+
+    const formPath = path.join(basedir, config.FORM);
+
+    const pagePaths = `/${config.webpages.folder}/`;
 
     return async (req, res) => {
         const route = decodeURIComponent(url.parse(req.url, true).pathname);
@@ -38,9 +41,13 @@ module.exports = (basedir, config) => {
                 sendJson(res, getCars());
             }
             else if(route === '/form') {
-                //send form
+                const result = await read(formPath);
+                result.fileData = result.fileData.replace('**MODEL**', '');
+                result.fileData = result.fileData.replace('**LICENCE**', '');
+                // result.fileData = result.fileData.replace(/\*\*[A-Z]+\*\*/g, ''); these lines replace two above = regular expression
+                send(res, result);
             }
-            else if(isIn(route, ...config.resourcePaths)) {
+            else if(isIn(route, ...config.resourcePaths, pagePaths)) {
                 send(res, await read(path.join(basedir, route)));
             }
             else if(route === '/error') {
@@ -51,9 +58,9 @@ module.exports = (basedir, config) => {
             }
         }
         catch(err) {
-            console.log(err);
-            res.end();
-            // redirectError(res, 'Not found');
+            // console.log(err);
+            // res.end();
+            redirectError(res, 'Not found');
         }
     }
 }

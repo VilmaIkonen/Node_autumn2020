@@ -5,7 +5,8 @@
         "folder": "library",
         "filehandler": "filehandler.js",
         "requesthandler": "requesthandler.js",
-        "getHandler": "routeHandlerGet.js"
+        "getHandler": "routeHandlerGet.js",
+        "postHandler": "routeHandlerPost.js"
     },
     "storage": {
         "folder": "carstorage",
@@ -15,8 +16,9 @@
     "resourcePaths":["/favicon", "/styles/", "/js/", "/images/"],
 
     "MENU": "menu.html",
+    "ERRORPAGE": "errorPage.html",
+    "FORM": "form.html",
     "webpages": {
-        "folder": "webpages",
-        "errorpage": "errorPage.html"
+        "folder": "webpages"
     }
 }

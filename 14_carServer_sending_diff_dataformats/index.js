@@ -8,13 +8,15 @@ const { redirectError } = require(path.join(__dirname, config.library.folder,'re
 
 const handleGetRequests = require(path.join(__dirname, config.library.folder, config.library.getHandler))(__dirname, config);
 
+const handlePostRequests = require(path.join(__dirname, config.library.folder, config.library.postHandler))(__dirname, config);
+
 const server = http.createServer((req, res) => {
     const method = req.method.toUpperCase();
     if(method === 'GET') {
         handleGetRequests(req, res);
     }
     else if(method === 'POST') {
-        // to post function
+        handlePostRequests(req, res);
     }
     else {
         redirectError(res, 'Resource in use')
