@@ -20,7 +20,7 @@ const sendJson = (res, jsonResource) => {
 }
 
 const sendError = (res, message, code = 404) => {
-    res.writeHead(code, {'Content-Type': 'Application/json'}) /
+    res.writeHead(code, {'Content-Type': 'application/json'});
     res.end(JSON.stringify({message}));
 }
 
